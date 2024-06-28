@@ -9,13 +9,24 @@
 /* Begin PBXBuildFile section */
 		05362C7F2C2EB0BD00E5F51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362C7E2C2EB0BD00E5F51C /* AppDelegate.swift */; };
 		05362C812C2EB0BD00E5F51C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362C802C2EB0BD00E5F51C /* SceneDelegate.swift */; };
-		05362C832C2EB0BD00E5F51C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362C822C2EB0BD00E5F51C /* ViewController.swift */; };
+		05362C832C2EB0BD00E5F51C /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362C822C2EB0BD00E5F51C /* StockViewController.swift */; };
 		05362C892C2EB0BD00E5F51C /* Stock_Zone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05362C872C2EB0BD00E5F51C /* Stock_Zone.xcdatamodeld */; };
 		05362C8B2C2EB0BF00E5F51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05362C8A2C2EB0BF00E5F51C /* Assets.xcassets */; };
 		05362C8E2C2EB0BF00E5F51C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05362C8C2C2EB0BF00E5F51C /* LaunchScreen.storyboard */; };
 		05362C992C2EB0BF00E5F51C /* Stock_ZoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362C982C2EB0BF00E5F51C /* Stock_ZoneTests.swift */; };
 		05362CA32C2EB0BF00E5F51C /* Stock_ZoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CA22C2EB0BF00E5F51C /* Stock_ZoneUITests.swift */; };
 		05362CA52C2EB0BF00E5F51C /* Stock_ZoneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CA42C2EB0BF00E5F51C /* Stock_ZoneUITestsLaunchTests.swift */; };
+		05362CB72C2EBA5100E5F51C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CB62C2EBA5100E5F51C /* NetworkManager.swift */; };
+		05362CB82C2EBA5100E5F51C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CB62C2EBA5100E5F51C /* NetworkManager.swift */; };
+		05362CB92C2EBA5100E5F51C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CB62C2EBA5100E5F51C /* NetworkManager.swift */; };
+		05362CBA2C2EBA8300E5F51C /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362C822C2EB0BD00E5F51C /* StockViewController.swift */; };
+		05362CBB2C2EBA8400E5F51C /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362C822C2EB0BD00E5F51C /* StockViewController.swift */; };
+		05362CBD2C2EBAE900E5F51C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* Stock.swift */; };
+		05362CBE2C2EBAE900E5F51C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* Stock.swift */; };
+		05362CBF2C2EBAE900E5F51C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* Stock.swift */; };
+		05362CC12C2EBAFF00E5F51C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Price.swift */; };
+		05362CC22C2EBAFF00E5F51C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Price.swift */; };
+		05362CC32C2EBAFF00E5F51C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Price.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +50,7 @@
 		05362C7B2C2EB0BD00E5F51C /* Stock Zone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stock Zone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05362C7E2C2EB0BD00E5F51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05362C802C2EB0BD00E5F51C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		05362C822C2EB0BD00E5F51C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05362C822C2EB0BD00E5F51C /* StockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 		05362C882C2EB0BD00E5F51C /* Stock_Zone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stock_Zone.xcdatamodel; sourceTree = "<group>"; };
 		05362C8A2C2EB0BF00E5F51C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05362C8D2C2EB0BF00E5F51C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +60,9 @@
 		05362C9E2C2EB0BF00E5F51C /* Stock ZoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stock ZoneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05362CA22C2EB0BF00E5F51C /* Stock_ZoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock_ZoneUITests.swift; sourceTree = "<group>"; };
 		05362CA42C2EB0BF00E5F51C /* Stock_ZoneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock_ZoneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		05362CB62C2EBA5100E5F51C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		05362CBC2C2EBAE900E5F51C /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		05362CC02C2EBAFF00E5F51C /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +118,6 @@
 				05362CB32C2EB75D00E5F51C /* Managers */,
 				05362CB22C2EB74F00E5F51C /* ViewControllers */,
 				05362CB12C2EB74600E5F51C /* Support */,
-				05362C7E2C2EB0BD00E5F51C /* AppDelegate.swift */,
-				05362C802C2EB0BD00E5F51C /* SceneDelegate.swift */,
-				05362C822C2EB0BD00E5F51C /* ViewController.swift */,
 				05362C8A2C2EB0BF00E5F51C /* Assets.xcassets */,
 				05362C8C2C2EB0BF00E5F51C /* LaunchScreen.storyboard */,
 				05362C8F2C2EB0BF00E5F51C /* Info.plist */,
@@ -135,6 +146,8 @@
 		05362CB12C2EB74600E5F51C /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				05362C7E2C2EB0BD00E5F51C /* AppDelegate.swift */,
+				05362C802C2EB0BD00E5F51C /* SceneDelegate.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -142,6 +155,7 @@
 		05362CB22C2EB74F00E5F51C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				05362C822C2EB0BD00E5F51C /* StockViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -149,6 +163,7 @@
 		05362CB32C2EB75D00E5F51C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				05362CB62C2EBA5100E5F51C /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -163,6 +178,8 @@
 		05362CB52C2EB77800E5F51C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				05362CBC2C2EBAE900E5F51C /* Stock.swift */,
+				05362CC02C2EBAFF00E5F51C /* Price.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,8 +314,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05362C832C2EB0BD00E5F51C /* ViewController.swift in Sources */,
+				05362C832C2EB0BD00E5F51C /* StockViewController.swift in Sources */,
+				05362CC12C2EBAFF00E5F51C /* Price.swift in Sources */,
 				05362C7F2C2EB0BD00E5F51C /* AppDelegate.swift in Sources */,
+				05362CBD2C2EBAE900E5F51C /* Stock.swift in Sources */,
+				05362CB72C2EBA5100E5F51C /* NetworkManager.swift in Sources */,
 				05362C892C2EB0BD00E5F51C /* Stock_Zone.xcdatamodeld in Sources */,
 				05362C812C2EB0BD00E5F51C /* SceneDelegate.swift in Sources */,
 			);
@@ -308,6 +328,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05362CBA2C2EBA8300E5F51C /* StockViewController.swift in Sources */,
+				05362CB82C2EBA5100E5F51C /* NetworkManager.swift in Sources */,
+				05362CBE2C2EBAE900E5F51C /* Stock.swift in Sources */,
+				05362CC22C2EBAFF00E5F51C /* Price.swift in Sources */,
 				05362C992C2EB0BF00E5F51C /* Stock_ZoneTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,8 +340,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05362CB92C2EBA5100E5F51C /* NetworkManager.swift in Sources */,
 				05362CA32C2EB0BF00E5F51C /* Stock_ZoneUITests.swift in Sources */,
+				05362CBB2C2EBA8400E5F51C /* StockViewController.swift in Sources */,
+				05362CBF2C2EBAE900E5F51C /* Stock.swift in Sources */,
 				05362CA52C2EB0BF00E5F51C /* Stock_ZoneUITestsLaunchTests.swift in Sources */,
+				05362CC32C2EBAFF00E5F51C /* Price.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
