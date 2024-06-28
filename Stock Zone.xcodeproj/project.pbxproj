@@ -99,6 +99,11 @@
 		05362C7D2C2EB0BD00E5F51C /* Stock Zone */ = {
 			isa = PBXGroup;
 			children = (
+				05362CB52C2EB77800E5F51C /* Models */,
+				05362CB42C2EB76700E5F51C /* ViewMode's */,
+				05362CB32C2EB75D00E5F51C /* Managers */,
+				05362CB22C2EB74F00E5F51C /* ViewControllers */,
+				05362CB12C2EB74600E5F51C /* Support */,
 				05362C7E2C2EB0BD00E5F51C /* AppDelegate.swift */,
 				05362C802C2EB0BD00E5F51C /* SceneDelegate.swift */,
 				05362C822C2EB0BD00E5F51C /* ViewController.swift */,
@@ -125,6 +130,41 @@
 				05362CA42C2EB0BF00E5F51C /* Stock_ZoneUITestsLaunchTests.swift */,
 			);
 			path = "Stock ZoneUITests";
+			sourceTree = "<group>";
+		};
+		05362CB12C2EB74600E5F51C /* Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		05362CB22C2EB74F00E5F51C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		05362CB32C2EB75D00E5F51C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		05362CB42C2EB76700E5F51C /* ViewMode's */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "ViewMode's";
+			sourceTree = "<group>";
+		};
+		05362CB52C2EB77800E5F51C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
