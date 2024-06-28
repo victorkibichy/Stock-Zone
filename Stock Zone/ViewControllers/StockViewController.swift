@@ -15,10 +15,15 @@ class StockViewController: UIViewController {
         // Set the view controller's title
         self.title = "StockZ"
         
-        // Set the background color to system background
+        // Set the background color to system teal
         view.backgroundColor = UIColor.systemTeal
+        
+        // Set navigation bar title
+        self.navigationItem.title = "StockZ"
+        
+        // Ensure navigation bar is not hidden (optional, but useful for debugging)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         // Do any additional setup after loading the view.
     }
 }
-
