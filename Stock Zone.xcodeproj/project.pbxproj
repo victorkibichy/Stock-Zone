@@ -24,9 +24,9 @@
 		05362CBD2C2EBAE900E5F51C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* Stock.swift */; };
 		05362CBE2C2EBAE900E5F51C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* Stock.swift */; };
 		05362CBF2C2EBAE900E5F51C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* Stock.swift */; };
-		05362CC12C2EBAFF00E5F51C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Price.swift */; };
-		05362CC22C2EBAFF00E5F51C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Price.swift */; };
-		05362CC32C2EBAFF00E5F51C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Price.swift */; };
+		05362CC12C2EBAFF00E5F51C /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Ticker.swift */; };
+		05362CC22C2EBAFF00E5F51C /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Ticker.swift */; };
+		05362CC32C2EBAFF00E5F51C /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Ticker.swift */; };
 		05362CC52C2EC93700E5F51C /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC42C2EC93700E5F51C /* StockViewModel.swift */; };
 		05362CC62C2EC93700E5F51C /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC42C2EC93700E5F51C /* StockViewModel.swift */; };
 		05362CC72C2EC93700E5F51C /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC42C2EC93700E5F51C /* StockViewModel.swift */; };
@@ -65,7 +65,7 @@
 		05362CA42C2EB0BF00E5F51C /* Stock_ZoneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock_ZoneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		05362CB62C2EBA5100E5F51C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		05362CBC2C2EBAE900E5F51C /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
-		05362CC02C2EBAFF00E5F51C /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
+		05362CC02C2EBAFF00E5F51C /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 		05362CC42C2EC93700E5F51C /* StockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,7 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				05362CBC2C2EBAE900E5F51C /* Stock.swift */,
-				05362CC02C2EBAFF00E5F51C /* Price.swift */,
+				05362CC02C2EBAFF00E5F51C /* Ticker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05362C832C2EB0BD00E5F51C /* StockViewController.swift in Sources */,
-				05362CC12C2EBAFF00E5F51C /* Price.swift in Sources */,
+				05362CC12C2EBAFF00E5F51C /* Ticker.swift in Sources */,
 				05362CC52C2EC93700E5F51C /* StockViewModel.swift in Sources */,
 				05362C7F2C2EB0BD00E5F51C /* AppDelegate.swift in Sources */,
 				05362CBD2C2EBAE900E5F51C /* Stock.swift in Sources */,
@@ -337,7 +337,7 @@
 				05362CBA2C2EBA8300E5F51C /* StockViewController.swift in Sources */,
 				05362CB82C2EBA5100E5F51C /* NetworkManager.swift in Sources */,
 				05362CBE2C2EBAE900E5F51C /* Stock.swift in Sources */,
-				05362CC22C2EBAFF00E5F51C /* Price.swift in Sources */,
+				05362CC22C2EBAFF00E5F51C /* Ticker.swift in Sources */,
 				05362CC62C2EC93700E5F51C /* StockViewModel.swift in Sources */,
 				05362C992C2EB0BF00E5F51C /* Stock_ZoneTests.swift in Sources */,
 			);
@@ -352,7 +352,7 @@
 				05362CBB2C2EBA8400E5F51C /* StockViewController.swift in Sources */,
 				05362CBF2C2EBAE900E5F51C /* Stock.swift in Sources */,
 				05362CA52C2EB0BF00E5F51C /* Stock_ZoneUITestsLaunchTests.swift in Sources */,
-				05362CC32C2EBAFF00E5F51C /* Price.swift in Sources */,
+				05362CC32C2EBAFF00E5F51C /* Ticker.swift in Sources */,
 				05362CC72C2EC93700E5F51C /* StockViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -51,3 +51,4 @@ struct StockPriceResponse: Codable {
         case ticker
     }
 }
+

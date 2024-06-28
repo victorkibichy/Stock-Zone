@@ -18,13 +18,11 @@ enum NetworkError: Error {
 class NetworkManager {
     
     private let apiKey = "2VbURjjrrKQG5F1hgNc4xm85eogWSFvY"
-    
-    // Base URL for Polygon.io
+   
     private let baseURL = "https://api.polygon.io"
     
-    // Fetch all tickers
+    // Fetching all tickers
     func fetchAllTickers(completion: @escaping (Result<[String], NetworkError>) -> Void) {
-        // Endpoint for fetching all tickers
         let urlString = "\(baseURL)/v3/reference/tickers?active=true&apiKey=\(apiKey)"
         
         guard let url = URL(string: urlString) else {
@@ -32,7 +30,6 @@ class NetworkManager {
             return
         }
         
-        // Create a data task
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(.requestFailed(error)))
@@ -64,14 +61,3 @@ class NetworkManager {
     }
 }
 
-// Models for the JSON response
-
-// Main response structure
-struct TickerListResponse: Codable {
-    let results: [Ticker]
-}
-
-// Ticker structure
-struct Ticker: Codable {
-    let ticker: String
-}
