@@ -27,6 +27,9 @@
 		05362CC12C2EBAFF00E5F51C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Price.swift */; };
 		05362CC22C2EBAFF00E5F51C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Price.swift */; };
 		05362CC32C2EBAFF00E5F51C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Price.swift */; };
+		05362CC52C2EC93700E5F51C /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC42C2EC93700E5F51C /* StockViewModel.swift */; };
+		05362CC62C2EC93700E5F51C /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC42C2EC93700E5F51C /* StockViewModel.swift */; };
+		05362CC72C2EC93700E5F51C /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC42C2EC93700E5F51C /* StockViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,7 @@
 		05362CB62C2EBA5100E5F51C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		05362CBC2C2EBAE900E5F51C /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		05362CC02C2EBAFF00E5F51C /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
+		05362CC42C2EC93700E5F51C /* StockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				05362CB52C2EB77800E5F51C /* Models */,
-				05362CB42C2EB76700E5F51C /* ViewMode's */,
+				05362CB42C2EB76700E5F51C /* ViewModels */,
 				05362CB32C2EB75D00E5F51C /* Managers */,
 				05362CB22C2EB74F00E5F51C /* ViewControllers */,
 				05362CB12C2EB74600E5F51C /* Support */,
@@ -168,11 +172,12 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		05362CB42C2EB76700E5F51C /* ViewMode's */ = {
+		05362CB42C2EB76700E5F51C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				05362CC42C2EC93700E5F51C /* StockViewModel.swift */,
 			);
-			path = "ViewMode's";
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		05362CB52C2EB77800E5F51C /* Models */ = {
@@ -316,6 +321,7 @@
 			files = (
 				05362C832C2EB0BD00E5F51C /* StockViewController.swift in Sources */,
 				05362CC12C2EBAFF00E5F51C /* Price.swift in Sources */,
+				05362CC52C2EC93700E5F51C /* StockViewModel.swift in Sources */,
 				05362C7F2C2EB0BD00E5F51C /* AppDelegate.swift in Sources */,
 				05362CBD2C2EBAE900E5F51C /* Stock.swift in Sources */,
 				05362CB72C2EBA5100E5F51C /* NetworkManager.swift in Sources */,
@@ -332,6 +338,7 @@
 				05362CB82C2EBA5100E5F51C /* NetworkManager.swift in Sources */,
 				05362CBE2C2EBAE900E5F51C /* Stock.swift in Sources */,
 				05362CC22C2EBAFF00E5F51C /* Price.swift in Sources */,
+				05362CC62C2EC93700E5F51C /* StockViewModel.swift in Sources */,
 				05362C992C2EB0BF00E5F51C /* Stock_ZoneTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +353,7 @@
 				05362CBF2C2EBAE900E5F51C /* Stock.swift in Sources */,
 				05362CA52C2EB0BF00E5F51C /* Stock_ZoneUITestsLaunchTests.swift in Sources */,
 				05362CC32C2EBAFF00E5F51C /* Price.swift in Sources */,
+				05362CC72C2EC93700E5F51C /* StockViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
