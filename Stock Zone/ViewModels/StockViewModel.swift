@@ -46,4 +46,24 @@ class StockViewModel {
     func loadMoreTickers() {
         fetchAllTickersRx()
     }
+    
+    // Fetch and filter tickers based on a search query
+    func searchTickers(query: String) {
+        guard !query.isEmpty else {
+            fetchAllTickersRx() // If the query is empty, load initial data
+            return
+        }
+        
+        networkManager.searchTickers(query: query)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onNext: { [weak self] searchResults in
+                    self?.tickers.accept(searchResults)
+                },
+                onError: { error in
+                    print("Error searching tickers: \(error)")
+                }
+            )
+            .disposed(by: disposeBag)
+    }
 }
