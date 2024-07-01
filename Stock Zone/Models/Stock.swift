@@ -13,7 +13,7 @@ struct StockPrice: Codable {
     let low: Double
     let numberOfTrades: Int
     let open: Double
-    let timestamp: Int64  // Represented as Unix timestamp
+    let timestamp: Int64  
     let volume: Int
     let volumeWeightedAverage: Double
 
