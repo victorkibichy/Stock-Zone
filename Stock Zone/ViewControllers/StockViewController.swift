@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class StockViewController: UIViewController {
 
     // MARK: - Properties
     private let viewModel = StockViewModel()
     private let tableView = UITableView()
+    private let disposeBag = DisposeBag()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -29,18 +32,14 @@ class StockViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         setupTableView()
+        bindViewModel()
         
-        configureViewModel()
-        
-        viewModel.fetchAllTickers()
+        viewModel.fetchAllTickersRx()
     }
     
-    // MARK: - UI Setup
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.dataSource = self
-        tableView.delegate = self
         
         // Register a cell for the table view
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "StockCell")
@@ -54,43 +53,20 @@ class StockViewController: UIViewController {
         ])
     }
     
-    // MARK: - Configure ViewModel
-    private func configureViewModel() {
-        // Bind the update UI callback
-        viewModel.updateUI = { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+    private func bindViewModel() {
+        // Bind tickers to the table view
+        viewModel.tickers
+            .bind(to: tableView.rx.items(cellIdentifier: "StockCell")) { index, ticker, cell in
+                cell.textLabel?.text = "\(ticker.ticker) - \(ticker.name)"
+                cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             }
-        }
+            .disposed(by: disposeBag)
         
-        // Handle errors
-        viewModel.onError = { [weak self] errorMessage in
-            DispatchQueue.main.async {
-                self?.showErrorAlert(message: errorMessage)
-            }
-        }
-    }
-    
-    // MARK: - Show Error Alert
-    private func showErrorAlert(message: String) {
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alertController, animated: true)
-    }
-}
-
-// MARK: - UITableViewDataSource, UITableViewDelegate
-extension StockViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.tickers.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StockCell", for: indexPath)
-        let ticker = viewModel.tickers[indexPath.row]
-        cell.textLabel?.text = ticker
-        
-        return cell
+        // Handle row selection
+        tableView.rx.itemSelected
+            .subscribe(onNext: { indexPath in
+                print("Selected ticker at \(indexPath.row)")
+            })
+            .disposed(by: disposeBag)
     }
 }

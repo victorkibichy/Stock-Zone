@@ -5,31 +5,28 @@
 //  Created by  Bouncy Baby on 6/28/24.
 //
 
-import Foundation
+import RxSwift
+import RxCocoa
 
 class StockViewModel {
-
-    // MARK: - Properties
     private let networkManager = NetworkManager()
-    private(set) var tickers: [String] = [] {
-        didSet {
-            self.updateUI?()
-        }
-    }
+    private let disposeBag = DisposeBag()
     
-    var onError: ((String) -> Void)?
-    var updateUI: (() -> Void)?
+    // PublishSubject to emit tickers
+    var tickers: PublishSubject<[Ticker]> = PublishSubject()
     
-    // MARK: - Fetch All Tickers
-    func fetchAllTickers() {
-        networkManager.fetchAllTickers { [weak self] result in
-            switch result {
-            case .success(let tickerData):
-                // Assuming tickerData is an array of strings representing tickers
-                self?.tickers = tickerData
-            case .failure(let error):
-                self?.onError?("Failed to fetch tickers: \(error.localizedDescription)")
-            }
-        }
+    // Function to fetch tickers and bind to tickers PublishSubject
+    func fetchAllTickersRx() {
+        networkManager.fetchAllTickers()
+            .observe(on: MainScheduler.instance) // Ensure updates happen on the main thread
+            .subscribe(
+                onNext: { [weak self] tickers in
+                    self?.tickers.onNext(tickers)
+                },
+                onError: { error in
+                    print("Error fetching tickers: \(error)")
+                }
+            )
+            .disposed(by: disposeBag)
     }
 }

@@ -7,11 +7,13 @@
 
 import Foundation
 
+struct Ticker: Codable {
+    let ticker: String
+    let name: String
+    let type: String?
+}
+
 struct TickerListResponse: Codable {
     let results: [Ticker]
 }
 
-// Ticker structure
-struct Ticker: Codable {
-    let ticker: String
-}
