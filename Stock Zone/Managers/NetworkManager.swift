@@ -20,42 +20,22 @@ class NetworkManager {
     private let apiKey = "2VbURjjrrKQG5F1hgNc4xm85eogWSFvY"
     private let baseURL = "https://api.polygon.io"
     
-    // Fetching all tickers using RxSwift Observable
-    func fetchAllTickers() -> Observable<[Ticker]> {
-        return Observable.create { [self] observer in
-            let urlString = "\(baseURL)/v3/reference/tickers?active=true&apiKey=\(apiKey)"
-            
-            guard let url = URL(string: urlString) else {
-                observer.onError(NetworkError.invalidURL)
-                return Disposables.create()
-            }
-            
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                if let error = error {
-                    observer.onError(NetworkError.requestFailed(error))
-                    return
-                }
-                
-                guard let data = data else {
-                    observer.onError(NetworkError.invalidResponse)
-                    return
-                }
-                
+    // Fetching tickers with pagination
+    func fetchTickers(limit: Int, offset: Int) -> Observable<[Ticker]> {
+        let urlString = "\(baseURL)/v3/reference/tickers?active=true&apiKey=\(apiKey)&limit=\(limit)&offset=\(offset)"
+        
+        guard let url = URL(string: urlString) else {
+            return Observable.error(NetworkError.invalidURL)
+        }
+        
+        return URLSession.shared.rx.data(request: URLRequest(url: url))
+            .map { data in
                 do {
                     let tickerResponse = try JSONDecoder().decode(TickerListResponse.self, from: data)
-                    let tickers = tickerResponse.results
-                    observer.onNext(tickers)
-                    observer.onCompleted()
+                    return tickerResponse.results
                 } catch {
-                    observer.onError(NetworkError.decodingError(error))
+                    throw NetworkError.decodingError(error)
                 }
             }
-            
-            task.resume()
-            
-            return Disposables.create {
-                task.cancel()
-            }
-        }
     }
 }

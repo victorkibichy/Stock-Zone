@@ -5,6 +5,7 @@
 //  Created by  Bouncy Baby on 6/28/24.
 //
 
+import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
@@ -41,7 +42,6 @@ class StockViewController: UIViewController {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        // Register a cell for the table view
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "StockCell")
         
         // Set constraints for the table view
@@ -66,6 +66,19 @@ class StockViewController: UIViewController {
         tableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
                 print("Selected ticker at \(indexPath.row)")
+            })
+            .disposed(by: disposeBag)
+        
+        // Handle table view scroll
+        tableView.rx.contentOffset
+            .subscribe(onNext: { [weak self] contentOffset in
+                guard let self = self else { return }
+                let contentHeight = self.tableView.contentSize.height
+                let scrollPosition = contentOffset.y + self.tableView.frame.size.height
+                
+                if scrollPosition > contentHeight - 100 { // Fetch more when 100 points before the bottom
+                    self.viewModel.loadMoreTickers()
+                }
             })
             .disposed(by: disposeBag)
     }

@@ -12,21 +12,38 @@ class StockViewModel {
     private let networkManager = NetworkManager()
     private let disposeBag = DisposeBag()
     
-    // PublishSubject to emit tickers
-    var tickers: PublishSubject<[Ticker]> = PublishSubject()
+    var tickers = BehaviorRelay<[Ticker]>(value: [])
+    private var currentOffset = 0
+    private let limit = 100
+    private var isFetching = false
+    private var hasMoreData = true
     
-    // Function to fetch tickers and bind to tickers PublishSubject
     func fetchAllTickersRx() {
-        networkManager.fetchAllTickers()
-            .observe(on: MainScheduler.instance) // Ensure updates happen on the main thread
+        guard !isFetching && hasMoreData else { return }
+        isFetching = true
+        
+        networkManager.fetchTickers(limit: limit, offset: currentOffset)
+            .observe(on: MainScheduler.instance)
             .subscribe(
-                onNext: { [weak self] tickers in
-                    self?.tickers.onNext(tickers)
+                onNext: { [weak self] newTickers in
+                    guard let self = self else { return }
+                    if newTickers.count < self.limit {
+                        self.hasMoreData = false
+                    }
+                    self.tickers.accept(self.tickers.value + newTickers)
+                    self.currentOffset += self.limit
+                    self.isFetching = false
                 },
-                onError: { error in
+                onError: { [weak self] error in
                     print("Error fetching tickers: \(error)")
+                    self?.isFetching = false
                 }
             )
             .disposed(by: disposeBag)
+    }
+    
+    // Triggered to load the next set of tickers
+    func loadMoreTickers() {
+        fetchAllTickersRx()
     }
 }
