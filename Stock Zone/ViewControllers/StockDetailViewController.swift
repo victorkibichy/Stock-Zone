@@ -22,10 +22,10 @@ class StockDetailViewController: UIViewController {
     private let volumeLabel = UILabel()
     private let openingPriceLabel = UILabel()
     private let closingPriceLabel = UILabel()
-    
+    private let stockImageView = UIImageView()
     private let scrollView = UIScrollView()
     private let contentView = UIView()
-    private let refreshControl = UIRefreshControl()
+    private let refreshControl = UIRefreshControl() //for network refresh functions in thr page
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +73,11 @@ class StockDetailViewController: UIViewController {
             $0.textAlignment = .center
         }
         
+        stockImageView.image = UIImage(named: "Stockyy")
+        stockImageView.contentMode = .scaleAspectFit
+        stockImageView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(stockImageView)
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -95,8 +100,12 @@ class StockDetailViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
+        
+        NSLayoutConstraint.activate([
+            stockImageView.heightAnchor.constraint(equalToConstant: 300) 
+        ])
     }
-    
+
     private func setupBindings() {
         viewModel.stockDetails
             .compactMap { $0 }

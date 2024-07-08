@@ -42,7 +42,6 @@ class StockViewModel {
             .disposed(by: disposeBag)
     }
     
-    // Triggered to load the next set of tickers
     func loadMoreTickers() {
         fetchAllTickersRx()
     }

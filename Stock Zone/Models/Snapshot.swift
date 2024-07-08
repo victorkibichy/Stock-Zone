@@ -46,8 +46,6 @@ struct TickerDetail: Codable {
     let day: DayDetails?
 }
 
-// Define the response struct based on the root level of the JSON
-import Foundation
 
 struct StockPriceResponse: Codable {
     let request_id: String
