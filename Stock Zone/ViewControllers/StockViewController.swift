@@ -5,6 +5,13 @@
 //  Created by  Bouncy Baby on 6/28/24.
 //
 
+//
+//  StockViewController.swift
+//  Stock Zone
+//
+//  Created by Bouncy Baby on 6/28/24.
+//
+
 import UIKit
 import RxSwift
 import RxCocoa
@@ -15,6 +22,7 @@ class StockViewController: UIViewController {
     private let tableView = UITableView()
     private let searchBar = UISearchBar()
     private let disposeBag = DisposeBag()
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,13 +53,11 @@ class StockViewController: UIViewController {
     }
     
     private func setupSearchBar() {
-        // Configure the search bar
         searchBar.placeholder = "Search Stocks"
         searchBar.delegate = self
         searchBar.showsCancelButton = true
-        searchBar.isHidden = true // Hide initially
+        searchBar.isHidden = true
         
-        // Add the search bar to the view
         view.addSubview(searchBar)
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         
@@ -65,8 +71,11 @@ class StockViewController: UIViewController {
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "StockCell")
+        
+        tableView.refreshControl = refreshControl
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
@@ -77,7 +86,6 @@ class StockViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        // Bind tickers to the table view
         viewModel.tickers
             .bind(to: tableView.rx.items(cellIdentifier: "StockCell")) { index, ticker, cell in
                 cell.textLabel?.text = "\(ticker.ticker) - \(ticker.name)"
@@ -85,7 +93,6 @@ class StockViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        // Handle row selection
         tableView.rx.modelSelected(Ticker.self)
             .subscribe(onNext: { [weak self] ticker in
                 guard let self = self else { return }
@@ -93,20 +100,18 @@ class StockViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        // Handle table view scroll for pagination
         tableView.rx.contentOffset
             .subscribe(onNext: { [weak self] contentOffset in
                 guard let self = self else { return }
                 let contentHeight = self.tableView.contentSize.height
                 let scrollPosition = contentOffset.y + self.tableView.frame.size.height
                 
-                if scrollPosition > contentHeight - 100 { // Fetch more when 100 points before the bottom
+                if scrollPosition > contentHeight - 100 {
                     self.viewModel.loadMoreTickers()
                 }
             })
             .disposed(by: disposeBag)
         
-        // Bind search bar text to trigger search
         searchBar.rx.text.orEmpty
             .distinctUntilChanged()
             .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
@@ -114,17 +119,27 @@ class StockViewController: UIViewController {
                 self?.viewModel.searchTickers(query: query)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.tickers
+            .subscribe(onNext: { [weak self] _ in
+                self?.refreshControl.endRefreshing()
+            })
+            .disposed(by: disposeBag)
     }
     
     @objc private func showSearchBar() {
         searchBar.isHidden = !searchBar.isHidden
         if !searchBar.isHidden {
-            searchBar.becomeFirstResponder() // Focus the search bar
+            searchBar.becomeFirstResponder()
         } else {
             searchBar.resignFirstResponder()
             searchBar.text = ""
-            viewModel.fetchAllTickersRx() // Reset to initial state
+            viewModel.fetchAllTickersRx()
         }
+    }
+    
+    @objc private func refreshData() {
+        viewModel.fetchAllTickersRx()
     }
     
     private func showStockDetails(_ ticker: Ticker) {
@@ -134,11 +149,10 @@ class StockViewController: UIViewController {
     }
 }
 
-// MARK: - UISearchBarDelegate
 extension StockViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.isHidden = false
+        searchBar.isHidden = true
         searchBar.text = ""
-        viewModel.fetchAllTickersRx() // Reset to initial state
+        viewModel.fetchAllTickersRx()
     }
 }
