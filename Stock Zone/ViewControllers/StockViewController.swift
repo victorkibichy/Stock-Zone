@@ -11,13 +11,11 @@ import RxCocoa
 
 class StockViewController: UIViewController {
     
-    // MARK: - Properties
     private let viewModel = StockViewModel()
     private let tableView = UITableView()
     private let searchBar = UISearchBar()
     private let disposeBag = DisposeBag()
     
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,8 +25,12 @@ class StockViewController: UIViewController {
         viewModel.fetchAllTickersRx()
     }
     
-    // MARK: - UI Setup
     private func setupUI() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.systemBackground.cgColor, UIColor.systemTeal.cgColor]
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        
         self.title = "StockZ"
         view.backgroundColor = UIColor.systemTeal
         
@@ -114,7 +116,6 @@ class StockViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    // MARK: - Actions
     @objc private func showSearchBar() {
         searchBar.isHidden = !searchBar.isHidden
         if !searchBar.isHidden {
@@ -128,17 +129,15 @@ class StockViewController: UIViewController {
     
     private func showStockDetails(_ ticker: Ticker) {
         let detailVC = StockDetailViewController()
-        detailVC.ticker = ticker // Assign the selected stock data to the ticker property in StockDetailViewController
+        detailVC.ticker = ticker
         navigationController?.pushViewController(detailVC, animated: true)
     }
-
-
 }
 
 // MARK: - UISearchBarDelegate
 extension StockViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.isHidden = true
+        searchBar.isHidden = false
         searchBar.text = ""
         viewModel.fetchAllTickersRx() // Reset to initial state
     }

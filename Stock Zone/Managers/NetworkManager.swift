@@ -34,7 +34,7 @@ class NetworkManager {
     
     // Searching tickers based on query
     func searchTickers(query: String) -> Observable<[Ticker]> {
-        let urlString = "https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers/AAPL?apiKey=2VbURjjrrKQG5F1hgNc4xm85eogWSFvY"
+        let urlString = "\(baseURL)/v3/reference/tickers?search=\(query)&active=true&apiKey=\(apiKey)"
         
         guard let url = URL(string: urlString) else {
             return Observable.error(NetworkError.invalidURL)

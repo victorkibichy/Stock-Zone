@@ -12,7 +12,7 @@ import RxCocoa
 
 class StockDetailViewController: UIViewController {
     
-    var ticker: Ticker? // Property to store the selected stock data
+    var ticker: Ticker? 
     
     private let viewModel = StockDetailViewModel()
     private let disposeBag = DisposeBag()
