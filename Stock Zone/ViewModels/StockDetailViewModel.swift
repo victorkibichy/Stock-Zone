@@ -11,10 +11,8 @@ import RxCocoa
 
 class StockDetailViewModel {
     
-    // Input: trigger to fetch stock details
     let fetchStockDetailsTrigger = PublishSubject<String>()
     
-    // Output: stock details as observable
     let stockDetails = BehaviorRelay<StockSnapshotResponse.DayData?>(value: nil)
     
     private let disposeBag = DisposeBag()

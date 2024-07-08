@@ -1,10 +1,4 @@
 //
-//  StockDetailViewController.swift
-//  Stock Zone
-//
-//  Created by  Bouncy Baby on 7/1/24.
-//
-
 //
 //  StockDetailViewController.swift
 //  Stock Zone
@@ -23,6 +17,7 @@ class StockDetailViewController: UIViewController {
     private let viewModel = StockDetailViewModel()
     private let disposeBag = DisposeBag()
     
+    private let detailTitle = UILabel() // Label for "Today's details"
     private let highLabel = UILabel()
     private let lowLabel = UILabel()
     private let volumeLabel = UILabel()
@@ -36,30 +31,54 @@ class StockDetailViewController: UIViewController {
         setupBindings()
         
         if let ticker = ticker {
-            title = ticker.ticker // Set navigation title to the selected stock symbol or name
+            title = ticker.name
             viewModel.fetchStockDetailsTrigger.onNext(ticker.ticker)
         }
     }
     
     private func setupUI() {
+        // Gradient background
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.systemBackground.cgColor, UIColor.systemTeal.cgColor]
+        view.layer.insertSublayer(gradientLayer, at: 0)
         
-        view.backgroundColor = .systemBackground
+        // Configure the detail title label
+        detailTitle.text = "Today's Details"
+        detailTitle.font = UIFont.boldSystemFont(ofSize: 24)
+        detailTitle.textAlignment = .center
+        detailTitle.textColor = .black
+        detailTitle.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(detailTitle)
         
-        // Layout your labels
+        // Configure the stack view for stock details
         let stackView = UIStackView(arrangedSubviews: [highLabel, lowLabel, volumeLabel, openingPriceLabel, closingPriceLabel])
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         
-        // Constraints for the stack view
+        // Configure labels styles
+        [highLabel, lowLabel, volumeLabel, openingPriceLabel, closingPriceLabel].forEach {
+            $0.textColor = .black
+            $0.font = UIFont.systemFont(ofSize: 18)
+            $0.textAlignment = .center
+        }
+        
         NSLayoutConstraint.activate([
+            detailTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            detailTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            detailTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: detailTitle.bottomAnchor, constant: 32),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
     }
+
     
     private func setupBindings() {
         viewModel.stockDetails
