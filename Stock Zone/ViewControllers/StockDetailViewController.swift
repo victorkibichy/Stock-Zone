@@ -5,6 +5,13 @@
 //  Created by  Bouncy Baby on 7/1/24.
 //
 
+//
+//  StockDetailViewController.swift
+//  Stock Zone
+//
+//  Created by Bouncy Baby on 7/1/24.
+//
+
 import UIKit
 import RxSwift
 import RxCocoa
@@ -16,7 +23,6 @@ class StockDetailViewController: UIViewController {
     private let viewModel = StockDetailViewModel()
     private let disposeBag = DisposeBag()
     
-    // UI Components
     private let highLabel = UILabel()
     private let lowLabel = UILabel()
     private let volumeLabel = UILabel()
@@ -29,15 +35,15 @@ class StockDetailViewController: UIViewController {
         setupUI()
         setupBindings()
         
-        // Check if ticker data is available
         if let ticker = ticker {
-            // Trigger fetching stock details
+            title = ticker.ticker // Set navigation title to the selected stock symbol or name
             viewModel.fetchStockDetailsTrigger.onNext(ticker.ticker)
         }
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
+        
+        view.backgroundColor = .systemBackground
         
         // Layout your labels
         let stackView = UIStackView(arrangedSubviews: [highLabel, lowLabel, volumeLabel, openingPriceLabel, closingPriceLabel])
