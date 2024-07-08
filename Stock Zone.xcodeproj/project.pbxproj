@@ -21,9 +21,9 @@
 		05362CB92C2EBA5100E5F51C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CB62C2EBA5100E5F51C /* NetworkManager.swift */; };
 		05362CBA2C2EBA8300E5F51C /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362C822C2EB0BD00E5F51C /* StockViewController.swift */; };
 		05362CBB2C2EBA8400E5F51C /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362C822C2EB0BD00E5F51C /* StockViewController.swift */; };
-		05362CBD2C2EBAE900E5F51C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* Stock.swift */; };
-		05362CBE2C2EBAE900E5F51C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* Stock.swift */; };
-		05362CBF2C2EBAE900E5F51C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* Stock.swift */; };
+		05362CBD2C2EBAE900E5F51C /* StockDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* StockDetails.swift */; };
+		05362CBE2C2EBAE900E5F51C /* StockDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* StockDetails.swift */; };
+		05362CBF2C2EBAE900E5F51C /* StockDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CBC2C2EBAE900E5F51C /* StockDetails.swift */; };
 		05362CC12C2EBAFF00E5F51C /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Ticker.swift */; };
 		05362CC22C2EBAFF00E5F51C /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Ticker.swift */; };
 		05362CC32C2EBAFF00E5F51C /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05362CC02C2EBAFF00E5F51C /* Ticker.swift */; };
@@ -36,6 +36,11 @@
 		057721EA2C32905100029172 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057721E92C32905100029172 /* StockDetailViewController.swift */; };
 		057721EB2C32905100029172 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057721E92C32905100029172 /* StockDetailViewController.swift */; };
 		057721EC2C32905100029172 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057721E92C32905100029172 /* StockDetailViewController.swift */; };
+		057721EE2C32AC2700029172 /* StockSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057721ED2C32AC2700029172 /* StockSnapshot.swift */; };
+		057721EF2C32AC2700029172 /* StockSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057721ED2C32AC2700029172 /* StockSnapshot.swift */; };
+		057721F02C32AC2700029172 /* StockSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057721ED2C32AC2700029172 /* StockSnapshot.swift */; };
+		05BB3F0D2C33EC9500D480A0 /* StockDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BB3F0C2C33EC9500D480A0 /* StockDetailViewModel.swift */; };
+		05BB3F0F2C33F95600D480A0 /* Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BB3F0E2C33F95600D480A0 /* Snapshot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,11 +75,14 @@
 		05362CA22C2EB0BF00E5F51C /* Stock_ZoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock_ZoneUITests.swift; sourceTree = "<group>"; };
 		05362CA42C2EB0BF00E5F51C /* Stock_ZoneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock_ZoneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		05362CB62C2EBA5100E5F51C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		05362CBC2C2EBAE900E5F51C /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		05362CBC2C2EBAE900E5F51C /* StockDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetails.swift; sourceTree = "<group>"; };
 		05362CC02C2EBAFF00E5F51C /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 		05362CC42C2EC93700E5F51C /* StockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewModel.swift; sourceTree = "<group>"; };
 		057721E62C328DC100029172 /* Error Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error Types.swift"; sourceTree = "<group>"; };
 		057721E92C32905100029172 /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
+		057721ED2C32AC2700029172 /* StockSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSnapshot.swift; sourceTree = "<group>"; };
+		05BB3F0C2C33EC9500D480A0 /* StockDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewModel.swift; sourceTree = "<group>"; };
+		05BB3F0E2C33F95600D480A0 /* Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				05362CC42C2EC93700E5F51C /* StockViewModel.swift */,
+				05BB3F0C2C33EC9500D480A0 /* StockDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -195,8 +204,10 @@
 		05362CB52C2EB77800E5F51C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				05362CBC2C2EBAE900E5F51C /* Stock.swift */,
+				05362CBC2C2EBAE900E5F51C /* StockDetails.swift */,
 				05362CC02C2EBAFF00E5F51C /* Ticker.swift */,
+				057721ED2C32AC2700029172 /* StockSnapshot.swift */,
+				05BB3F0E2C33F95600D480A0 /* Snapshot.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,12 +357,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BB3F0D2C33EC9500D480A0 /* StockDetailViewModel.swift in Sources */,
 				057721EA2C32905100029172 /* StockDetailViewController.swift in Sources */,
 				05362C832C2EB0BD00E5F51C /* StockViewController.swift in Sources */,
+				05BB3F0F2C33F95600D480A0 /* Snapshot.swift in Sources */,
 				05362CC12C2EBAFF00E5F51C /* Ticker.swift in Sources */,
 				05362CC52C2EC93700E5F51C /* StockViewModel.swift in Sources */,
+				057721EE2C32AC2700029172 /* StockSnapshot.swift in Sources */,
 				05362C7F2C2EB0BD00E5F51C /* AppDelegate.swift in Sources */,
-				05362CBD2C2EBAE900E5F51C /* Stock.swift in Sources */,
+				05362CBD2C2EBAE900E5F51C /* StockDetails.swift in Sources */,
 				057721E72C328DC100029172 /* Error Types.swift in Sources */,
 				05362CB72C2EBA5100E5F51C /* NetworkManager.swift in Sources */,
 				05362C892C2EB0BD00E5F51C /* Stock_Zone.xcdatamodeld in Sources */,
@@ -365,8 +379,9 @@
 			files = (
 				05362CBA2C2EBA8300E5F51C /* StockViewController.swift in Sources */,
 				05362CB82C2EBA5100E5F51C /* NetworkManager.swift in Sources */,
+				057721EF2C32AC2700029172 /* StockSnapshot.swift in Sources */,
 				057721EB2C32905100029172 /* StockDetailViewController.swift in Sources */,
-				05362CBE2C2EBAE900E5F51C /* Stock.swift in Sources */,
+				05362CBE2C2EBAE900E5F51C /* StockDetails.swift in Sources */,
 				05362CC22C2EBAFF00E5F51C /* Ticker.swift in Sources */,
 				05362CC62C2EC93700E5F51C /* StockViewModel.swift in Sources */,
 				05362C992C2EB0BF00E5F51C /* Stock_ZoneTests.swift in Sources */,
@@ -378,10 +393,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				057721EC2C32905100029172 /* StockDetailViewController.swift in Sources */,
+				057721F02C32AC2700029172 /* StockSnapshot.swift in Sources */,
 				05362CB92C2EBA5100E5F51C /* NetworkManager.swift in Sources */,
 				05362CA32C2EB0BF00E5F51C /* Stock_ZoneUITests.swift in Sources */,
 				05362CBB2C2EBA8400E5F51C /* StockViewController.swift in Sources */,
-				05362CBF2C2EBAE900E5F51C /* Stock.swift in Sources */,
+				05362CBF2C2EBAE900E5F51C /* StockDetails.swift in Sources */,
 				05362CA52C2EB0BF00E5F51C /* Stock_ZoneUITestsLaunchTests.swift in Sources */,
 				05362CC32C2EBAFF00E5F51C /* Ticker.swift in Sources */,
 				05362CC72C2EC93700E5F51C /* StockViewModel.swift in Sources */,

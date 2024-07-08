@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class StockViewController: UIViewController {
-
+    
     // MARK: - Properties
     private let viewModel = StockViewModel()
     private let tableView = UITableView()
@@ -24,21 +24,17 @@ class StockViewController: UIViewController {
         setupUI()
         bindViewModel()
         
-        // Fetch the initial list of tickers
         viewModel.fetchAllTickersRx()
     }
     
     // MARK: - UI Setup
     private func setupUI() {
-        // Set the view controller's title
         self.title = "StockZ"
         view.backgroundColor = UIColor.systemTeal
         
-        // Setup the navigation bar
         self.navigationItem.title = "StockZ"
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
-        // Add search button to the navigation bar
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
         self.navigationItem.rightBarButtonItem = searchButton
         
@@ -130,12 +126,13 @@ class StockViewController: UIViewController {
         }
     }
     
-    // MARK: - Navigation
     private func showStockDetails(_ ticker: Ticker) {
         let detailVC = StockDetailViewController()
-        detailVC.stock = ticker // Pass the selected stock data
+        detailVC.ticker = ticker // Assign the selected stock data to the ticker property in StockDetailViewController
         navigationController?.pushViewController(detailVC, animated: true)
     }
+
+
 }
 
 // MARK: - UISearchBarDelegate
