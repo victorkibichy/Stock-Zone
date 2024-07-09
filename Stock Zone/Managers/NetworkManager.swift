@@ -50,7 +50,7 @@ class NetworkManager {
                 }
             }
     }
-    
+/// this is to fetch specifics of the  stock selections
     static func fetchStockDetails(for ticker: String) -> Observable<StockSnapshotResponse.DayData?> {
         let baseURL = "https://api.polygon.io/v2/aggs/ticker/"
         let apiKey = "2VbURjjrrKQG5F1hgNc4xm85eogWSFvY"

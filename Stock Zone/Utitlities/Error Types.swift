@@ -31,7 +31,6 @@ enum NetworkError: Error, LocalizedError {
 }
 
 extension NetworkError {
-    // Log the error description and additional details if available
     func log() {
         switch self {
         case .invalidURL:

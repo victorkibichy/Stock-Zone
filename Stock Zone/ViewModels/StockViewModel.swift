@@ -46,7 +46,6 @@ class StockViewModel {
         fetchAllTickersRx()
     }
     
-    // Fetch and filter tickers based on a search query
     func searchTickers(query: String) {
         guard !query.isEmpty else {
             fetchAllTickersRx() // If the query is empty, load initial data

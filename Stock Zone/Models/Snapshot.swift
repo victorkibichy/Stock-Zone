@@ -65,8 +65,6 @@ struct TickerDetails: Codable {
     let updated: Int64
 }
 
-
-
 struct LastQuoteDetails: Codable {
     let P: Double // Bid price
     let S: Int    // Bid size
@@ -104,10 +102,6 @@ struct PrevDayDetails: Codable {
     let v: Int    // Volume
     let vw: Double // Volume weighted average price
 }
-
-
-
-
 
 // This model represents the entire API response
 struct StockDetailResponse: Codable {

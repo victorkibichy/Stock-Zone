@@ -5,13 +5,6 @@
 //  Created by  Bouncy Baby on 6/28/24.
 //
 
-//
-//  StockViewController.swift
-//  Stock Zone
-//
-//  Created by Bouncy Baby on 6/28/24.
-//
-
 import UIKit
 import RxSwift
 import RxCocoa
